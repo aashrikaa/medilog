@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap");
+
+:root {
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
+}
+
+body {
+	color: rgb(var(--foreground-rgb));
+	background: linear-gradient(
+			to bottom,
+			transparent,
+			rgb(var(--background-end-rgb))
+		)
+		rgb(var(--background-start-rgb));
+	font-family: "Inter", system-ui, sans-serif;
+}
+
+input {
+	color: black !important;
+}
+textarea {
+	color: black !important;
+}
+
+select {
+	color: black !important;
+}
+
+.nepali-font {
+	font-family: "Noto Sans Devanagari", sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #c1c1c1;
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #a8a8a8;
+}
+
+/* Medical document specific styles */
+.medical-card {
+	@apply bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200;
+}
+
+.medical-button {
+	@apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.medical-button-primary {
+	@apply medical-button bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+}
+
+.medical-button-secondary {
+	@apply medical-button bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-gray-500;
+}
+
+.medical-button-danger {
+	@apply medical-button bg-danger-600 text-white hover:bg-danger-700 focus:ring-danger-500;
+}
+
+/* Status indicators */
+.status-normal {
+	@apply text-green-600 bg-green-100;
+}
+
+.status-high {
+	@apply text-red-600 bg-red-100;
+}
+
+.status-low {
+	@apply text-yellow-600 bg-yellow-100;
+}
+
+.status-critical {
+	@apply text-red-800 bg-red-200;
+}
+
+/* Loading animations */
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
+
+.animate-pulse {
+	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* File upload area */
+.file-upload-area {
+	@apply border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-primary-400 transition-colors duration-200;
+}
+
+.file-upload-area.dragover {
+	@apply border-primary-500 bg-primary-50;
+}
+
+/* Chart container */
+.chart-container {
+	@apply bg-white rounded-lg p-4 shadow-sm border border-gray-200;
+}
+
+/* Responsive grid */
+.responsive-grid {
+	@apply grid gap-4;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+@media (max-width: 640px) {
+	.responsive-grid {
+		grid-template-columns: 1fr;
+	}
+}
