@@ -1,5 +1,5 @@
 from docx import Document
-from docx.shared import Pt
+from docx.shared import Pt, Inches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 
@@ -16,6 +16,29 @@ def add_subtitle(document: Document, text: str):
 	return p
 
 
+def set_header_row_style(row):
+	for cell in row.cells:
+		for paragraph in cell.paragraphs:
+			if paragraph.runs:
+				for run in paragraph.runs:
+					run.font.bold = True
+			else:
+				r = paragraph.add_run()
+				r.font.bold = True
+
+
+def set_column_widths(table):
+	# Use fixed widths to enforce tabular layout (approx 6.5" total page width)
+	try:
+		table.autofit = False
+	except Exception:
+		pass
+	col_widths = [Inches(1.5), Inches(1.8), Inches(2.7), Inches(0.5)]
+	for idx, width in enumerate(col_widths):
+		for cell in table.columns[idx].cells:
+			cell.width = width
+
+
 def build_table(document: Document):
 	# Create table with header
 	table = document.add_table(rows=1, cols=4)
@@ -25,6 +48,7 @@ def build_table(document: Document):
 	hdr_cells[1].text = 'Activity Planned'
 	hdr_cells[2].text = 'Activity Done'
 	hdr_cells[3].text = 'Time Spent (hrs)'
+	set_header_row_style(table.rows[0])
 
 	rows = [
 		(
@@ -72,7 +96,11 @@ def build_table(document: Document):
 		row_cells[1].text = planned
 		row_cells[2].text = done
 		row_cells[3].text = hours
+		# Align hours center for readability
+		for p in row_cells[3].paragraphs:
+			p.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
+	set_column_widths(table)
 	return table
 
 
