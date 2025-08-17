@@ -1,0 +1,85 @@
+erDiagram
+  USER {
+    ObjectId _id PK
+    string email "unique"
+    string name
+    string password
+    string bloodType "enum: A+, A-, B+, B-, AB+, AB-, O+, O-"
+    string[] allergies
+    string[] chronicConditions
+    object[] emergencyContacts "name, relationship, phone, email"
+    string language "enum: en, np"
+    date createdAt
+    date updatedAt
+  }
+
+  DOCUMENT {
+    ObjectId _id PK
+    ObjectId userId FK "-> USER._id"
+    string filename
+    string originalName
+    number fileSize
+    string fileType
+    string category
+    string[] tags
+    string supabasePath
+    string extractedText
+    ObjectId[] labValues "-> LABVALUE._id"
+    string summary
+    date uploadDate
+    date createdAt
+    date updatedAt
+  }
+
+  LABVALUE {
+    ObjectId _id PK
+    ObjectId documentId FK "-> DOCUMENT._id"
+    string name
+    number value
+    string unit
+    number referenceRange_min
+    number referenceRange_max
+    string status "enum: normal, high, low, critical"
+    number confidence
+    date extractedDate
+    date createdAt
+    date updatedAt
+  }
+
+  REMINDER {
+    ObjectId _id PK
+    string userId "not an ObjectId ref"
+    string title
+    string description
+    string type "enum: medicine, appointment, health_check, vaccination, screening, other"
+    string category "enum: medication, appointment, maintenance, follow_up, preventive"
+    date dueDate
+    string dueDateBS
+    date reminderDate
+    string reminderDateBS
+    boolean isRecurring
+    string recurrenceType "enum: daily, weekly, monthly, yearly, custom"
+    number recurrenceInterval
+    date nextReminderDate
+    string medicationName
+    string dosage
+    string frequency
+    boolean prescriptionRefill
+    number remainingDays
+    string doctorName
+    string location
+    string appointmentType
+    string notes
+    string status "enum: pending, completed, overdue, cancelled"
+    string priority "enum: low, medium, high, urgent"
+    string[] notificationsSent
+    date lastNotificationDate
+    string[] tags
+    date createdAt
+    date updatedAt
+    date completedAt
+  }
+
+  USER ||--o{ DOCUMENT : owns
+  DOCUMENT ||--o{ LABVALUE : contains
+  USER ||..o{ REMINDER : "associated by userId (string)"
