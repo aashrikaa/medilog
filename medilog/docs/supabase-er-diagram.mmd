@@ -1,0 +1,22 @@
+erDiagram
+  STORAGE_BUCKET {
+    uuid id PK
+    text name "e.g., medical-documents"
+    boolean public
+    timestamptz created_at
+    timestamptz updated_at
+  }
+
+  STORAGE_OBJECT {
+    uuid id PK
+    uuid bucket_id FK "-> STORAGE_BUCKET.id"
+    text name "object path: userId/filename"
+    bigint size
+    text content_type
+    jsonb metadata
+    timestamptz created_at
+    timestamptz updated_at
+    timestamptz last_accessed_at
+  }
+
+  STORAGE_BUCKET ||--o{ STORAGE_OBJECT : contains
