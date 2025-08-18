@@ -5,7 +5,11 @@ import jwt from "jsonwebtoken";
 import { z } from "zod";
 
 const loginSchema = z.object({
-	email: z.string().email("Invalid email address"),
+	email: z
+		.string()
+		.trim()
+		.email("Invalid email address")
+		.transform((v) => v.toLowerCase()),
 	password: z.string().min(1, "Password is required"),
 });
 
