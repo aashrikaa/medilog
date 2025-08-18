@@ -37,12 +37,20 @@ export default function HomePage() {
 			const endpoint = isLogin
 				? "/api/auth/login"
 				: "/api/auth/register";
+
+			// Normalize inputs: trim whitespace and lowercase email
+			const payload = {
+				...formData,
+				email: formData.email.trim().toLowerCase(),
+				name: formData.name.trim(),
+			};
+
 			const response = await fetch(endpoint, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(formData),
+				body: JSON.stringify(payload),
 			});
 
 			const data = await response.json();
@@ -213,6 +221,9 @@ export default function HomePage() {
 										onChange={(e) =>
 											handleInputChange("name", e.target.value)
 										}
+										pattern="^[A-Za-z\s]+$"
+										title="Name must contain only letters and spaces"
+										minLength={2}
 										className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-black"
 										placeholder="Enter your full name"
 										required={!isLogin}
@@ -234,6 +245,10 @@ export default function HomePage() {
 									onChange={(e) =>
 										handleInputChange("email", e.target.value)
 									}
+									autoComplete="email"
+									inputMode="email"
+									pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+									title="Please enter a valid email address"
 									className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-black"
 									placeholder="Enter your email"
 									required

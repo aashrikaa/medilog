@@ -5,8 +5,16 @@ import jwt from 'jsonwebtoken';
 import { z } from 'zod';
 
 const registerSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
+  name: z
+    .string()
+    .trim()
+    .min(2, 'Name must be at least 2 characters')
+    .regex(/^[A-Za-z\s]+$/, 'Name must contain only letters and spaces'),
+  email: z
+    .string()
+    .trim()
+    .email('Invalid email address')
+    .transform((v) => v.toLowerCase()),
   password: z.string().min(6, 'Password must be at least 6 characters'),
   language: z.enum(['en', 'np']).default('en'),
 });
