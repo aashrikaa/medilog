@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript If Statements - Making Decisions!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #ffd700;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .concept {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #ffd700;
+        }
+        .example {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .output {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            min-height: 50px;
+        }
+        button {
+            background: #ffd700;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+        .highlight {
+            background: rgba(255, 215, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .flow-diagram {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .flow-step {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.3);
+            padding: 10px;
+            margin: 5px;
+            border-radius: 8px;
+            min-width: 120px;
+        }
+        .arrow {
+            font-size: 1.5em;
+            margin: 0 10px;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤔 JavaScript If Statements</h1>
+        
+        <div class="concept">
+            <h2>What are If Statements? 🤔</h2>
+            <p>If statements are like <span class="highlight">decision makers</span> in your code. They let your program choose different paths based on conditions!</p>
+            <p>Think of it like this: "If it's raining, take an umbrella. Otherwise, leave it at home."</p>
+        </div>
+
+        <div class="concept">
+            <h2>How If Statements Work 🔄</h2>
+            <div class="flow-diagram">
+                <div class="flow-step">Check Condition</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">Is it True?</div>
+                <div class="arrow">→</div>
+                <div class="flow-step">Run Code</div>
+            </div>
+            <p>The program checks if a condition is true, and if it is, it runs the code inside the if statement.</p>
+        </div>
+
+        <div class="concept">
+            <h2>Basic If Statement 📝</h2>
+            <p>Here's the simplest form:</p>
+            <div class="example">
+                if (condition) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// This code runs if condition is true<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Condition is true!");<br>
+                }
+            </div>
+            <p>The <span class="highlight">condition</span> is usually a comparison that results in true or false.</p>
+        </div>
+
+        <div class="concept">
+            <h2>Try It Yourself! ✨</h2>
+            <p>Click the buttons to see if statements in action:</p>
+            
+            <button onclick="checkAge()">Check Age</button>
+            <button onclick="checkWeather()">Check Weather</button>
+            <button onclick="checkScore()">Check Score</button>
+            <button onclick="clearOutput()">Clear Output</button>
+            
+            <div id="output" class="output">
+                Click a button to see if statements work! ✨
+            </div>
+        </div>
+
+        <div class="concept">
+            <h2>If-Else Statements 🔀</h2>
+            <p>Sometimes you want to do one thing if a condition is true, and something else if it's false:</p>
+            <div class="example">
+                if (age >= 18) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("You can vote!");<br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Too young to vote.");<br>
+                }
+            </div>
+            <p>The <code>else</code> block runs when the condition is false.</p>
+        </div>
+
+        <div class="concept">
+            <h2>Else-If Statements 🔀🔀</h2>
+            <p>For multiple conditions, use <code>else if</code>:</p>
+            <div class="example">
+                if (score >= 90) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "A";<br>
+                } else if (score >= 80) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "B";<br>
+                } else if (score >= 70) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "C";<br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;grade = "F";<br>
+                }
+            </div>
+            <p>This checks conditions in order until one is true.</p>
+        </div>
+
+        <div class="concept">
+            <h2>Common Conditions 🔍</h2>
+            <p>Here are some typical conditions you'll use:</p>
+            <div class="example">
+                // Comparisons<br>
+                age >= 18;           // Greater than or equal to<br>
+                temperature < 0;      // Less than<br>
+                name === "John";     // Exactly equal to<br>
+                password != "";       // Not equal to<br><br>
+                
+                // Logical combinations<br>
+                age >= 18 && hasID;  // Both must be true<br>
+                isStudent || isTeacher; // Either can be true<br>
+                !isLoggedIn;         // Opposite of isLoggedIn
+            </div>
+        </div>
+
+        <div class="concept">
+            <h2>Practice Examples 💻</h2>
+            <p>Try these in your browser console:</p>
+            <div class="example">
+                let hour = 14;<br><br>
+                if (hour < 12) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Good morning!");<br>
+                } else if (hour < 18) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Good afternoon!");<br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Good evening!");<br>
+                }
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code for the interactive examples
+        let currentAge = 16;
+        let currentWeather = "sunny";
+        let currentScore = 85;
+
+        function checkAge() {
+            const output = document.getElementById('output');
+            let message = "";
+            
+            if (currentAge >= 18) {
+                message = "🎉 You're an adult! You can vote, drive, and more!";
+            } else if (currentAge >= 16) {
+                message = "🚗 You can drive (with restrictions) but can't vote yet.";
+            } else if (currentAge >= 13) {
+                message = "👶 You're a teenager! Enjoy your youth!";
+            } else {
+                message = "🍼 You're still a child. Keep learning and growing!";
+            }
+            
+            output.innerHTML = `
+                <h3>Age Check Result! 🎯</h3>
+                <p><strong>Your age:</strong> ${currentAge}</p>
+                <p><strong>Result:</strong> ${message}</p>
+                <p><em>This used if-else if-else statements!</em></p>
+            `;
+        }
+
+        function checkWeather() {
+            const output = document.getElementById('output');
+            let recommendation = "";
+            
+            if (currentWeather === "sunny") {
+                recommendation = "☀️ Perfect day for a picnic or outdoor activities!";
+            } else if (currentWeather === "rainy") {
+                recommendation = "🌧️ Stay inside with a good book or movie!";
+            } else if (currentWeather === "cloudy") {
+                recommendation = "☁️ Good day for a walk, but bring a jacket!";
+            } else if (currentWeather === "snowy") {
+                recommendation = "❄️ Build a snowman or go sledding!";
+            } else {
+                recommendation = "🤔 Check the weather forecast for today!";
+            }
+            
+            output.innerHTML = `
+                <h3>Weather Check Result! 🌤️</h3>
+                <p><strong>Current weather:</strong> ${currentWeather}</p>
+                <p><strong>Recommendation:</strong> ${recommendation}</p>
+                <p><em>Different weather = different recommendations!</em></p>
+            `;
+        }
+
+        function checkScore() {
+            const output = document.getElementById('output');
+            let grade = "";
+            let message = "";
+            
+            if (currentScore >= 90) {
+                grade = "A";
+                message = "🌟 Excellent! Outstanding work!";
+            } else if (currentScore >= 80) {
+                grade = "B";
+                message = "👍 Good job! Keep it up!";
+            } else if (currentScore >= 70) {
+                grade = "C";
+                message = "📚 Satisfactory, but room for improvement.";
+            } else if (currentScore >= 60) {
+                grade = "D";
+                message = "⚠️ Needs improvement. Study harder!";
+            } else {
+                grade = "F";
+                message = "❌ Failing. Please seek help immediately.";
+            }
+            
+            output.innerHTML = `
+                <h3>Score Check Result! 📊</h3>
+                <p><strong>Your score:</strong> ${currentScore}/100</p>
+                <p><strong>Grade:</strong> ${grade}</p>
+                <p><strong>Message:</strong> ${message}</p>
+                <p><em>This used multiple else-if statements!</em></p>
+            `;
+        }
+
+        function clearOutput() {
+            document.getElementById('output').innerHTML = 
+                "Output cleared! Click a button to see if statements work! ✨";
+        }
+
+        // Show a welcome message when the page loads
+        window.onload = function() {
+            console.log("🤔 Welcome to JavaScript If Statements!");
+            console.log("Try these examples:");
+            console.log("let age = 18;");
+            console.log("if (age >= 18) { console.log('Adult!'); }");
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Practice Exercises - Level 1!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #ffd700;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .exercise {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #ffd700;
+        }
+        .exercise h3 {
+            color: #ffd700;
+            margin-top: 0;
+        }
+        .code-area {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .input-area {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            width: 200px;
+        }
+        button {
+            background: #ffd700;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+        .result {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            min-height: 50px;
+        }
+        .hint {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        .solution {
+            background: rgba(0, 255, 0, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: none;
+        }
+        .show-solution {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💪 JavaScript Practice Exercises</h1>
+        <p style="text-align: center; font-size: 1.2em;">Ready to test your skills? Try these exercises!</p>
+        
+        <div class="exercise">
+            <h3>Exercise 1: Variable Creation 🎯</h3>
+            <p>Create variables to store your name, age, and favorite hobby. Then display them.</p>
+            <div class="code-area">
+                // Your code goes here<br>
+                // 1. Create variables for name, age, and hobby<br>
+                // 2. Display them using console.log or alert
+            </div>
+            <div class="input-area">
+                <input type="text" id="nameInput" placeholder="Enter your name">
+                <input type="number" id="ageInput" placeholder="Enter your age">
+                <input type="text" id="hobbyInput" placeholder="Enter your hobby">
+                <button onclick="exercise1()">Run Exercise 1</button>
+            </div>
+            <div id="result1" class="result">Click the button to see your variables in action!</div>
+            <button class="show-solution" onclick="toggleSolution('solution1')">Show Solution</button>
+            <div id="solution1" class="solution">
+                <strong>Solution:</strong><br>
+                let myName = "Your Name";<br>
+                let myAge = 25;<br>
+                let myHobby = "Reading";<br><br>
+                console.log("Name:", myName);<br>
+                console.log("Age:", myAge);<br>
+                console.log("Hobby:", myHobby);
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 2: Basic Math Operations 🧮</h3>
+            <p>Create a program that takes two numbers and performs addition, subtraction, multiplication, and division.</p>
+            <div class="code-area">
+                // Your code goes here<br>
+                // 1. Get two numbers from user<br>
+                // 2. Calculate all four operations<br>
+                // 3. Display the results
+            </div>
+            <div class="input-area">
+                <input type="number" id="num1Input" placeholder="First number">
+                <input type="number" id="num2Input" placeholder="Second number">
+                <button onclick="exercise2()">Run Exercise 2</button>
+            </div>
+            <div id="result2" class="result">Enter two numbers and click the button!</div>
+            <button class="show-solution" onclick="toggleSolution('solution2')">Show Solution</button>
+            <div id="solution2" class="solution">
+                <strong>Solution:</strong><br>
+                let num1 = 10;<br>
+                let num2 = 5;<br><br>
+                let sum = num1 + num2;<br>
+                let difference = num1 - num2;<br>
+                let product = num1 * num2;<br>
+                let quotient = num1 / num2;<br><br>
+                console.log("Sum:", sum);<br>
+                console.log("Difference:", difference);<br>
+                console.log("Product:", product);<br>
+                console.log("Quotient:", quotient);
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 3: Age Checker 🔍</h3>
+            <p>Create a program that checks if someone is old enough to drive (16+) and vote (18+).</p>
+            <div class="code-area">
+                // Your code goes here<br>
+                // 1. Get age from user<br>
+                // 2. Use if statements to check driving and voting age<br>
+                // 3. Display appropriate messages
+            </div>
+            <div class="input-area">
+                <input type="number" id="ageCheckInput" placeholder="Enter age">
+                <button onclick="exercise3()">Run Exercise 3</button>
+            </div>
+            <div id="result3" class="result">Enter an age to check driving and voting eligibility!</div>
+            <button class="show-solution" onclick="toggleSolution('solution3')">Show Solution</button>
+            <div id="solution3" class="solution">
+                <strong>Solution:</strong><br>
+                let age = 17;<br><br>
+                if (age >= 18) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("You can drive and vote!");<br>
+                } else if (age >= 16) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("You can drive (with restrictions) but can't vote.");<br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("You're too young to drive or vote.");<br>
+                }
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 4: Number Counter 🔢</h3>
+            <p>Create a program that counts from 1 to a given number using a loop.</p>
+            <div class="code-area">
+                // Your code goes here<br>
+                // 1. Get a number from user<br>
+                // 2. Use a for loop to count from 1 to that number<br>
+                // 3. Display each number
+            </div>
+            <div class="input-area">
+                <input type="number" id="countInput" placeholder="Count to this number">
+                <button onclick="exercise4()">Run Exercise 4</button>
+            </div>
+            <div id="result4" class="result">Enter a number to start counting!</div>
+            <button class="show-solution" onclick="toggleSolution('solution4')">Show Solution</button>
+            <div id="solution4" class="solution">
+                <strong>Solution:</strong><br>
+                let maxNumber = 5;<br><br>
+                for (let i = 1; i <= maxNumber; i++) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Count:", i);<br>
+                }
+            </div>
+        </div>
+
+        <div class="exercise">
+            <h3>Exercise 5: Simple Calculator 🧮</h3>
+            <p>Create a function that takes two numbers and an operation (+, -, *, /) and returns the result.</p>
+            <div class="code-area">
+                // Your code goes here<br>
+                // 1. Create a function with three parameters<br>
+                // 2. Use if statements to handle different operations<br>
+                // 3. Return the result
+            </div>
+            <div class="input-area">
+                <input type="number" id="calcNum1" placeholder="First number">
+                <select id="operationSelect">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">×</option>
+                    <option value="/">÷</option>
+                </select>
+                <input type="number" id="calcNum2" placeholder="Second number">
+                <button onclick="exercise5()">Run Exercise 5</button>
+            </div>
+            <div id="result5" class="result">Enter numbers and select an operation!</div>
+            <button class="show-solution" onclick="toggleSolution('solution5')">Show Solution</button>
+            <div id="solution5" class="solution">
+                <strong>Solution:</strong><br>
+                function calculate(num1, num2, operation) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (operation === '+') return num1 + num2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (operation === '-') return num1 - num2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (operation === '*') return num1 * num2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (operation === '/') return num1 / num2;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;return "Invalid operation";<br>
+                }<br><br>
+                let result = calculate(10, 5, '+');<br>
+                console.log("Result:", result);
+            </div>
+        </div>
+
+        <div class="hint">
+            <strong>💡 Tips:</strong>
+            <ul>
+                <li>Start with simple exercises and work your way up</li>
+                <li>Use console.log() to see your output</li>
+                <li>Don't be afraid to make mistakes - that's how you learn!</li>
+                <li>Try to solve each exercise before looking at the solution</li>
+                <li>Experiment with different values and see what happens</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Exercise 1: Variable Creation
+        function exercise1() {
+            const name = document.getElementById('nameInput').value || "Student";
+            const age = document.getElementById('ageInput').value || "20";
+            const hobby = document.getElementById('hobbyInput').value || "Programming";
+            
+            const result = document.getElementById('result1');
+            result.innerHTML = `
+                <h4>Your Variables:</h4>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Age:</strong> ${age}</p>
+                <p><strong>Hobby:</strong> ${hobby}</p>
+                <p><em>Great job! You've created and used variables!</em></p>
+            `;
+        }
+
+        // Exercise 2: Basic Math Operations
+        function exercise2() {
+            const num1 = parseFloat(document.getElementById('num1Input').value) || 10;
+            const num2 = parseFloat(document.getElementById('num2Input').value) || 5;
+            
+            const sum = num1 + num2;
+            const difference = num1 - num2;
+            const product = num1 * num2;
+            const quotient = num1 / num2;
+            
+            const result = document.getElementById('result2');
+            result.innerHTML = `
+                <h4>Math Results:</h4>
+                <p><strong>${num1} + ${num2} = ${sum}</strong></p>
+                <p><strong>${num1} - ${num2} = ${difference}</strong></p>
+                <p><strong>${num1} × ${num2} = ${product}</strong></p>
+                <p><strong>${num1} ÷ ${num2} = ${quotient.toFixed(2)}</strong></p>
+                <p><em>Excellent! You've mastered basic math operations!</em></p>
+            `;
+        }
+
+        // Exercise 3: Age Checker
+        function exercise3() {
+            const age = parseInt(document.getElementById('ageCheckInput').value) || 16;
+            let message = "";
+            
+            if (age >= 18) {
+                message = "🎉 You can drive and vote! You're a full adult!";
+            } else if (age >= 16) {
+                message = "🚗 You can drive (with restrictions) but can't vote yet.";
+            } else {
+                message = "🍼 You're too young to drive or vote. Keep growing!";
+            }
+            
+            const result = document.getElementById('result3');
+            result.innerHTML = `
+                <h4>Age Check Result:</h4>
+                <p><strong>Age:</strong> ${age}</p>
+                <p><strong>Status:</strong> ${message}</p>
+                <p><em>Perfect! You've used if-else statements correctly!</em></p>
+            `;
+        }
+
+        // Exercise 4: Number Counter
+        function exercise4() {
+            const maxNum = parseInt(document.getElementById('countInput').value) || 5;
+            let countOutput = "";
+            
+            for (let i = 1; i <= maxNum; i++) {
+                countOutput += `<span style="display: inline-block; background: rgba(255,215,0,0.3); padding: 8px; margin: 3px; border-radius: 5px; min-width: 30px; text-align: center;">${i}</span>`;
+            }
+            
+            const result = document.getElementById('result4');
+            result.innerHTML = `
+                <h4>Counting from 1 to ${maxNum}:</h4>
+                <div style="margin: 15px 0;">${countOutput}</div>
+                <p><em>Fantastic! You've mastered loops!</em></p>
+            `;
+        }
+
+        // Exercise 5: Simple Calculator
+        function exercise5() {
+            const num1 = parseFloat(document.getElementById('calcNum1').value) || 10;
+            const num2 = parseFloat(document.getElementById('calcNum2').value) || 5;
+            const operation = document.getElementById('operationSelect').value;
+            
+            let result;
+            let operationSymbol;
+            
+            switch(operation) {
+                case '+':
+                    result = num1 + num2;
+                    operationSymbol = '+';
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    operationSymbol = '-';
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    operationSymbol = '×';
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    operationSymbol = '÷';
+                    break;
+                default:
+                    result = "Invalid operation";
+            }
+            
+            const resultDiv = document.getElementById('result5');
+            resultDiv.innerHTML = `
+                <h4>Calculator Result:</h4>
+                <p><strong>${num1} ${operationSymbol} ${num2} = ${result}</strong></p>
+                <p><em>Amazing! You've created a working calculator function!</em></p>
+            `;
+        }
+
+        // Toggle solution visibility
+        function toggleSolution(solutionId) {
+            const solution = document.getElementById(solutionId);
+            if (solution.style.display === 'none' || solution.style.display === '') {
+                solution.style.display = 'block';
+            } else {
+                solution.style.display = 'none';
+            }
+        }
+
+        // Show welcome message
+        window.onload = function() {
+            console.log("💪 Welcome to JavaScript Exercises!");
+            console.log("Try solving these exercises step by step!");
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Operators - Math & Logic!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #e91e63;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .concept {
+            background: rgba(233, 30, 99, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #e91e63;
+        }
+        .example {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #ddd;
+        }
+        .output {
+            background: rgba(233, 30, 99, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            min-height: 50px;
+            border: 1px solid #e91e63;
+        }
+        button {
+            background: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #c2185b;
+            transform: translateY(-2px);
+        }
+        .highlight {
+            background: rgba(233, 30, 99, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .operator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .operator-card {
+            background: rgba(233, 30, 99, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e91e63;
+            text-align: center;
+        }
+        .operator-symbol {
+            font-size: 2em;
+            font-weight: bold;
+            color: #e91e63;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔢 JavaScript Operators</h1>
+        
+        <div class="concept">
+            <h2>What are Operators? 🤔</h2>
+            <p>Operators are <span class="highlight">symbols</span> that perform operations on values. Think of them as tools that help you work with data!</p>
+            <p>JavaScript has several types of operators:</p>
+            <ul>
+                <li><strong>Arithmetic Operators</strong> - for math calculations</li>
+                <li><strong>Assignment Operators</strong> - for storing values</li>
+                <li><strong>Comparison Operators</strong> - for comparing values</li>
+                <li><strong>Logical Operators</strong> - for combining conditions</li>
+            </ul>
+        </div>
+
+        <div class="concept">
+            <h2>Arithmetic Operators ➕➖✖️➗</h2>
+            <p>These are the basic math operators you know from school:</p>
+            
+            <div class="operator-grid">
+                <div class="operator-card">
+                    <div class="operator-symbol">+</div>
+                    <strong>Addition</strong><br>
+                    <code>5 + 3 = 8</code>
+                </div>
+                <div class="operator-card">
+                    <div class="operator-symbol">-</div>
+                    <strong>Subtraction</strong><br>
+                    <code>10 - 4 = 6</code>
+                </div>
+                <div class="operator-card">
+                    <div class="operator-symbol">*</div>
+                    <strong>Multiplication</strong><br>
+                    <code>6 * 7 = 42</code>
+                </div>
+                <div class="operator-card">
+                    <div class="operator-symbol">/</div>
+                    <strong>Division</strong><br>
+                    <code>15 / 3 = 5</code>
+                </div>
+                <div class="operator-card">
+                    <div class="operator-symbol">%</div>
+                    <strong>Modulus (Remainder)</strong><br>
+                    <code>17 % 5 = 2</code>
+                </div>
+                <div class="operator-card">
+                    <div class="operator-symbol">**</div>
+                    <strong>Exponentiation</strong><br>
+                    <code>2 ** 3 = 8</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="concept">
+            <h2>Try the Math! 🧮</h2>
+            <p>Click the buttons to see arithmetic operators in action:</p>
+            
+            <button onclick="basicMath()">Basic Math</button>
+            <button onclick="advancedMath()">Advanced Math</button>
+            <button onclick="modulusExample()">Modulus Magic</button>
+            <button onclick="clearOutput()">Clear Output</button>
+            
+            <div id="output" class="output">
+                Click a button to see the math magic! ✨
+            </div>
+        </div>
+
+        <div class="concept">
+            <h2>Assignment Operators 📝</h2>
+            <p>These operators assign values to variables:</p>
+            <div class="example">
+                let x = 5;        // Basic assignment<br>
+                x += 3;           // Same as: x = x + 3 (result: 8)<br>
+                x -= 2;           // Same as: x = x - 2 (result: 6)<br>
+                x *= 4;           // Same as: x = x * 4 (result: 24)<br>
+                x /= 6;           // Same as: x = x / 6 (result: 4)<br>
+                x %= 3;           // Same as: x = x % 3 (result: 1)
+            </div>
+        </div>
+
+        <div class="concept">
+            <h2>Comparison Operators 🔍</h2>
+            <p>These operators compare values and return true or false:</p>
+            <div class="example">
+                let a = 5, b = 10;<br><br>
+                a == b;    // false (equal value)<br>
+                a === b;   // false (equal value AND type)<br>
+                a != b;    // true (not equal)<br>
+                a < b;     // true (less than)<br>
+                a <= b;    // true (less than or equal)<br>
+                a > b;     // false (greater than)<br>
+                a >= b;    // false (greater than or equal)
+            </div>
+        </div>
+
+        <div class="concept">
+            <h2>Logical Operators 🧠</h2>
+            <p>These operators combine multiple conditions:</p>
+            <div class="example">
+                let isStudent = true;<br>
+                let hasMoney = false;<br><br>
+                isStudent && hasMoney;    // false (AND - both must be true)<br>
+                isStudent || hasMoney;    // true (OR - at least one must be true)<br>
+                !isStudent;               // false (NOT - opposite of true)
+            </div>
+        </div>
+
+        <div class="concept">
+            <h2>Practice Examples 💻</h2>
+            <p>Try these in your browser console:</p>
+            <div class="example">
+                // Arithmetic<br>
+                let result = (10 + 5) * 2;<br>
+                console.log("Result:", result);<br><br>
+                
+                // Comparison<br>
+                let age = 18;<br>
+                let canVote = age >= 18;<br>
+                console.log("Can vote?", canVote);<br><br>
+                
+                // Logical<br>
+                let hasLicense = true;<br>
+                let hasCar = false;<br>
+                let canDrive = hasLicense && hasCar;<br>
+                console.log("Can drive?", canDrive);
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code for the interactive examples
+        let number1 = 15;
+        let number2 = 7;
+
+        function basicMath() {
+            const output = document.getElementById('output');
+            const sum = number1 + number2;
+            const difference = number1 - number2;
+            const product = number1 * number2;
+            const quotient = number1 / number2;
+            
+            output.innerHTML = `
+                <h3>Basic Math Operations! 🧮</h3>
+                <p><strong>${number1} + ${number2} = ${sum}</strong></p>
+                <p><strong>${number1} - ${number2} = ${difference}</strong></p>
+                <p><strong>${number1} × ${number2} = ${product}</strong></p>
+                <p><strong>${number1} ÷ ${number2} = ${quotient.toFixed(2)}</strong></p>
+                <p><em>Notice how JavaScript automatically calculates everything!</em></p>
+            `;
+        }
+
+        function advancedMath() {
+            const output = document.getElementById('output');
+            const power = number1 ** 2;
+            const remainder = number1 % number2;
+            const increment = ++number1;
+            const decrement = --number2;
+            
+            output.innerHTML = `
+                <h3>Advanced Math Operations! 🚀</h3>
+                <p><strong>${number1-1}² = ${power}</strong></p>
+                <p><strong>${number1-1} % ${number2+1} = ${remainder}</strong></p>
+                <p><strong>Increment: ${number1-1} → ${increment}</strong></p>
+                <p><strong>Decrement: ${number2+1} → ${decrement}</strong></p>
+                <p><em>++ adds 1, -- subtracts 1!</em></p>
+            `;
+        }
+
+        function modulusExample() {
+            const output = document.getElementById('output');
+            const examples = [
+                { num: 17, divisor: 5, result: 17 % 5 },
+                { num: 23, divisor: 7, result: 23 % 7 },
+                { num: 100, divisor: 30, result: 100 % 30 }
+            ];
+            
+            let html = '<h3>Modulus Examples! 🔍</h3>';
+            examples.forEach(example => {
+                html += `<p><strong>${example.num} % ${example.divisor} = ${example.result}</strong></p>`;
+            });
+            html += '<p><em>Modulus gives you the remainder after division!</em></p>';
+            
+            output.innerHTML = html;
+        }
+
+        function clearOutput() {
+            document.getElementById('output').innerHTML = 
+                "Output cleared! Click a button to see the math magic! ✨";
+        }
+
+        // Show a welcome message when the page loads
+        window.onload = function() {
+            console.log("🔢 Welcome to JavaScript Operators!");
+            console.log("Try these examples:");
+            console.log("5 + 3 =", 5 + 3);
+            console.log("10 % 3 =", 10 % 3);
+            console.log("2 ** 4 =", 2 ** 4);
+        };
+    </script>
+</body>
+</html>
