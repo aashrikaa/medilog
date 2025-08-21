@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Loops - Repeat After Me!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #ffd700;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .concept {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #ffd700;
+        }
+        .example {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .output {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            min-height: 50px;
+        }
+        button {
+            background: #ffd700;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+        .highlight {
+            background: rgba(255, 215, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .loop-visual {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .loop-step {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.3);
+            padding: 10px;
+            margin: 5px;
+            border-radius: 8px;
+            min-width: 100px;
+        }
+        .arrow {
+            font-size: 1.5em;
+            margin: 0 10px;
+            color: #ffd700;
+        }
+        .number-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .number-box {
+            background: rgba(255, 215, 0, 0.3);
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 JavaScript Loops</h1>
+        
+        <div class="concept">
+            <h2>What are Loops? 🤔</h2>
+            <p>Loops are like <span class="highlight">repetition machines</span> in your code. They let you run the same code multiple times without writing it over and over!</p>
+            <p>Think of it like this: "Count from 1 to 10" or "Print 'Hello' 5 times"</p>
+        </div>
+
+        <div class="concept">
+            <h2>How Loops Work 🔄</h2>
+            <div class="loop-visual">
+                <div class="loop-step">Start</div>
+                <div class="arrow">→</div>
+                <div class="loop-step">Check Condition</div>
+                <div class="arrow">→</div>
+                <div class="loop-step">Run Code</div>
+                <div class="arrow">→</div>
+                <div class="loop-step">Update</div>
+                <div class="arrow">↻</div>
+            </div>
+            <p>Loops keep running until a condition becomes false. The arrow going back shows the repetition!</p>
+        </div>
+
+        <div class="concept">
+            <h2>For Loop 📝</h2>
+            <p>The most common loop - great for counting and going through lists:</p>
+            <div class="example">
+                for (let i = 0; i < 5; i++) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Count: " + i);<br>
+                }
+            </div>
+            <p>This has three parts:</p>
+            <ol>
+                <li><code>let i = 0</code> - Start with 0</li>
+                <li><code>i < 5</code> - Keep going while i is less than 5</li>
+                <li><code>i++</code> - Add 1 to i each time</li>
+            </ol>
+        </div>
+
+        <div class="concept">
+            <h2>Try the For Loop! ✨</h2>
+            <p>Click the buttons to see loops in action:</p>
+            
+            <button onclick="countNumbers()">Count to 10</button>
+            <button onclick="countdown()">Countdown</button>
+            <button onclick="sumNumbers()">Sum Numbers</button>
+            <button onclick="clearOutput()">Clear Output</button>
+            
+            <div id="output" class="output">
+                Click a button to see loops work! ✨
+            </div>
+        </div>
+
+        <div class="concept">
+            <h2>While Loop 🔄</h2>
+            <p>Keeps running while a condition is true:</p>
+            <div class="example">
+                let count = 0;<br>
+                while (count < 5) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Count: " + count);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;count++;<br>
+                }
+            </div>
+            <p><span class="highlight">Important:</span> Make sure the condition eventually becomes false, or you'll have an infinite loop!</p>
+        </div>
+
+        <div class="concept">
+            <h2>Do-While Loop 🔄</h2>
+            <p>Similar to while, but runs at least once:</p>
+            <div class="example">
+                let number = 1;<br>
+                do {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Number: " + number);<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;number++;<br>
+                } while (number <= 3);
+            </div>
+            <p>This will always run at least once, even if the condition is false from the start.</p>
+        </div>
+
+        <div class="concept">
+            <h2>Loop Control 🛑</h2>
+            <p>Sometimes you want to control the loop flow:</p>
+            <div class="example">
+                for (let i = 1; i <= 10; i++) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (i === 5) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue;  // Skip 5<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (i === 8) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;     // Stop at 8<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br>
+                }
+            </div>
+            <p><code>continue</code> skips to the next iteration, <code>break</code> exits the loop entirely.</p>
+        </div>
+
+        <div class="concept">
+            <h2>Practice Examples 💻</h2>
+            <p>Try these in your browser console:</p>
+            <div class="example">
+                // Count even numbers<br>
+                for (let i = 2; i <= 20; i += 2) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br>
+                }<br><br>
+                
+                // While loop with user input simulation<br>
+                let attempts = 0;<br>
+                while (attempts < 3) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;console.log("Attempt " + (attempts + 1));<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;attempts++;<br>
+                }
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code for the interactive examples
+        function countNumbers() {
+            const output = document.getElementById('output');
+            let result = '<h3>Counting with For Loop! 🔢</h3>';
+            
+            for (let i = 1; i <= 10; i++) {
+                result += `<span class="number-box">${i}</span>`;
+            }
+            
+            result += '<p><em>This loop ran 10 times, printing each number!</em></p>';
+            output.innerHTML = result;
+        }
+
+        function countdown() {
+            const output = document.getElementById('output');
+            let result = '<h3>Countdown with While Loop! ⏰</h3>';
+            let count = 10;
+            
+            while (count > 0) {
+                result += `<span class="number-box">${count}</span>`;
+                count--;
+            }
+            
+            result += '<p><em>This while loop counted down from 10 to 1!</em></p>';
+            output.innerHTML = result;
+        }
+
+        function sumNumbers() {
+            const output = document.getElementById('output');
+            let sum = 0;
+            let result = '<h3>Summing Numbers with For Loop! ➕</h3>';
+            
+            for (let i = 1; i <= 5; i++) {
+                sum += i;
+                result += `<span class="number-box">${i}</span>`;
+            }
+            
+            result += `<p><strong>Sum: ${sum}</strong></p>`;
+            result += '<p><em>This loop added up all the numbers from 1 to 5!</em></p>';
+            output.innerHTML = result;
+        }
+
+        function clearOutput() {
+            document.getElementById('output').innerHTML = 
+                "Output cleared! Click a button to see loops work! ✨";
+        }
+
+        // Show a welcome message when the page loads
+        window.onload = function() {
+            console.log("🔄 Welcome to JavaScript Loops!");
+            console.log("Try these examples:");
+            console.log("for (let i = 0; i < 5; i++) { console.log(i); }");
+            console.log("let count = 0; while (count < 3) { console.log(count); count++; }");
+        };
+    </script>
+</body>
+</html>
